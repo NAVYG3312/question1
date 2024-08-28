@@ -1,0 +1,48 @@
+def compare_strings(s1, s2):
+    
+    s1 = s1.lower()
+    s2 = s2.lower()
+    
+
+    if s1 == s2:
+        print("Yes")
+        common = s1
+        uncommon = ''
+    else:
+        print("No")
+        common_chars = []
+        uncommon_chars = []
+        i, j = 0, 0
+        while i < len(s1) and j < len(s2):
+            if s1[i] == s2[j]:
+                common_chars.append(s1[i])
+                i += 1
+                j += 1
+            elif s1[i] < s2[j]:
+                uncommon_chars.append(s1[i])
+                i += 1
+            else:
+                uncommon_chars.append(s2[j])
+                j += 1
+        
+        
+        uncommon_chars.extend(s1[i:])
+        uncommon_chars.extend(s2[j:])
+        
+        
+        common_str = ''.join(common_chars)
+        uncommon_str = ''.join(uncommon_chars)
+        
+        
+        print(f"String1: {common_str}")
+        print(f"String2: {uncommon_str}")
+
+
+s1 = "navy"
+s2 = "navya"
+compare_strings(s1, s2)
+
+s1 = "navy"
+s2 = "navy"
+compare_strings(s1, s2)
+
